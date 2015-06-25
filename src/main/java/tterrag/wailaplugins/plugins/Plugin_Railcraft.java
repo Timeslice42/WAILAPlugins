@@ -200,12 +200,10 @@ public class Plugin_Railcraft extends PluginBase implements IWailaEntityProvider
 
             if (tank != null)
             {
-                FluidStack stored = tank.getFluid();
-
-                if (stored != null)
+                if (tank.renderData.fluid != null)
                 {
                     ret = true;
-                    currenttip.add(stored.amount + " / " + tank.getCapacity() + " mB " + stored.getLocalizedName());
+                    currenttip.add(tank.renderData.amount + " / " + tank.getCapacity() + " mB " + tank.renderData.fluid.getLocalizedName(new FluidStack(tank.renderData.fluid, tank.renderData.amount)));
                 }
             }
         }
